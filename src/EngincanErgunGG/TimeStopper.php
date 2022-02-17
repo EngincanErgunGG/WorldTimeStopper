@@ -21,7 +21,7 @@ class TimeStopper extends PluginBase implements Listener {
             }
             
             function onLevelChange(EntityLevelChangeEvent $event) {
-                if (Server::getInstance()->isLevelLoaded($event->getTarget()->getFolderName())){
+                if (!Server::getInstance()->isLevelLoaded($event->getTarget()->getFolderName())){
                     Server::getInstance()->loadLevel($event->getTarget()->getFolderName());
                 }
                 $event->getTarget()->setTime(0);
